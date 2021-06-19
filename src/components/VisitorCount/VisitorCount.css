@@ -1,0 +1,16 @@
+.counter {
+  width: 150px;
+  height: 75px;
+  border-radius: 50%;
+  background-color: limegreen;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 600px;
+}
+
+h2 {
+  margin: 0;
+}

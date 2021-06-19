@@ -7,6 +7,7 @@ import About from "./components/About/About";
 import Navigation from "./components/Navigation/Navigation";
 import SocialMedia from "./components/SocialMedia/SocialMedia";
 import AgeGate from "./components/AgeGate/AgeGate";
+import VisitorCount from "./components/VisitorCount/VisitorCount";
 import { useUser } from "./state/userContext";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -30,6 +31,7 @@ export default function App() {
           <>
             <Navigation />
             <SocialMedia />
+            <VisitorCount />
             <Routes>
               <Route path="/home" element={<Home />} />
               <Route path="/about" element={<About />} />
