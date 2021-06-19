@@ -1,0 +1,39 @@
+.slider-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.scrolling {
+  animation: marquee 20s linear infinite;
+  display: inline-block;
+  color: #0769d1;
+
+  text-decoration: underline;
+  /* might have compatibility issues */
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+  /* ... */
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.none {
+  text-decoration: none;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.darkened {
+  color: black;
+  background-color: black;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}

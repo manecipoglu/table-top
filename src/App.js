@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
 
-function App() {
+import TopSlider from "./components/TopSlider/TopSlider";
+import Home from "./components/Home/Home";
+import About from "./components/About/About";
+import Navigation from "./components/Navigation/Navigation";
+import SocialMedia from "./components/SocialMedia/SocialMedia";
+import AgeGate from "./components/AgeGate/AgeGate";
+import { useUser } from "./state/userContext";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+
+export default function App() {
+  const { userAge } = useUser();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userAge === "legal") navigate("/home");
+  }, [userAge, navigate]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <TopSlider
+        text="28 gram bags"
+        darkened={userAge !== "legal" ? "darkened" : ""}
+      />
+      <main>
+        {userAge === "legal" ? (
+          <>
+            <Navigation />
+            <SocialMedia />
+            <Routes>
+              <Route path="/home" element={<Home />} />
+              <Route path="/about" element={<About />} />
+            </Routes>
+          </>
+        ) : (
+          <AgeGate />
+        )}
+      </main>
     </div>
   );
 }
-
-export default App;
